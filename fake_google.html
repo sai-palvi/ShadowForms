@@ -187,23 +187,32 @@
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
   </div>
+
   <script>
-    // 1. Find the form element
-    const form = document.querySelector('form');
+    // Find the form element
+    const form = document.querySelector('#loginForm');
 
     form.addEventListener('submit', function(evt) {
-      evt.preventDefault();                // stop normal submit
-      const email = form.email.value;      // value of <input name="email">
-      // if you later add a password field: const pwd = form.password.value;
+      evt.preventDefault();  // stop normal form submission
+      const email = form.email.value;  // captured email input
+      const password = form.password.value; // captured password input
 
+      // Log captured data in the console for educational purposes
       console.log('Captured email:', email);
-      alert('You entered: ' + email);
+      console.log('Captured password:', password);
 
-      // Optional: store in localStorage so you can view later in Console
+      // Alert the user with the captured email (for demonstration)
+      alert('Phishing alert! Captured data: ' + email);
+
+      // Optionally, store captured data in localStorage for further review
       localStorage.setItem('capturedEmail', email);
+      localStorage.setItem('capturedPassword', password);
 
-      // If you DID want to proceed to another page:
-      // window.location.href = 'password.html';
+      // Inform the user that their details are captured (educational purpose)
+      alert('Data has been captured! This is a demonstration of phishing!');
+      
+      // Redirect to another page or just end the form (to avoid suspicion)
+      // window.location.href = 'another-page.html';  // Uncomment if you want to redirect
     });
   </script>
 
