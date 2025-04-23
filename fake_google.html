@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #2e2e2e;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .login-box {
+      display: flex;
+      flex-direction: row;
+      background-color: #383838;
+      padding: 50px;
+      border-radius: 8px;
+      /* box-shadow removed per your earlier request */
+      max-width: 800px;
+      width: 100%;
+      height: 50%;
+    }
+
+    .left {
+      flex: 1;
+      padding-right: 40px;
+    }
+
+    .left h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .left p {
+      color: #bbb;
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    label {
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+
+    input {
+      background-color: transparent;
+      border: 1px solid #555;
+      padding: 10px;
+      border-radius: 4px;
+      color: white;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #8ab4f8;
+    }
+
+    .links, .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .links {
+      margin-top: 10px;
+    }
+
+    .actions {
+      margin-top: 30px;
+    }
+
+    .links a,
+    .actions a {
+      color: #8ab4f8;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .next-btn {
+      padding: 10px 20px;
+      background-color: #8ab4f8;
+      color: #000;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .next-btn:hover {
+      background-color: #a6c9fa;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    .footer a {
+      margin: 0 10px;
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      .login-box {
+        flex-direction: column;
+        padding: 30px;
+      }
+      .left {
+        padding-right: 0;
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="login-box">
+      <div class="left">
+        <!-- Move your logo HTML here -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+          alt="Logo"
+          style="display: block; margin-bottom: 20px; height: 50px;"
+        />
+        <h1>Sign in</h1>
+        <p>Use your account</p>
+      </div>
+      <div class="right">
+        <form action="#" id="loginForm">
+            <div class="form-group">
+              <label for="email">Email or phone</label>
+              <input type="text" id="email" name="email" required />
+            </div>
+          
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+          
+            <div class="links">
+              <a href="#">Forgot email?</a>
+              <a href="#">Forgot password?</a>
+            </div>
+          
+            <div class="actions">
+              <a href="#">Create account</a>
+              <button class="next-btn" type="submit">Sign in</button>
+            </div>
+          </form>
+          
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>English (United Kingdom)</span>
+    <a href="#">Help</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </div>
+  <script>
+    // 1. Find the form element
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', function(evt) {
+      evt.preventDefault();                // stop normal submit
+      const email = form.email.value;      // value of <input name="email">
+      // if you later add a password field: const pwd = form.password.value;
+
+      console.log('Captured email:', email);
+      alert('You entered: ' + email);
+
+      // Optional: store in localStorage so you can view later in Console
+      localStorage.setItem('capturedEmail', email);
+
+      // If you DID want to proceed to another page:
+      // window.location.href = 'password.html';
+    });
+  </script>
+
+</body>
+</html>
